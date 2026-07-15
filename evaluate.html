@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI CV Evaluation — Mohammad Shahabuddin</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            max-width: 420px;
+            width: 100%;
+            padding: 36px 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 28px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        h1 { font-size: 1.4rem; color: #2d3436; margin-bottom: 6px; }
+        h2 { font-size: 1rem; color: #0984e3; font-weight: 500; margin-bottom: 20px; }
+        p { font-size: 0.9rem; color: #636e72; margin-bottom: 24px; line-height: 1.5; }
+        .prompt-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 14px;
+            text-align: left;
+            font-size: 0.82rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            word-break: break-word;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.15s;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-chatgpt { background: #10a37f; }
+        .btn-gemini { background: #4285f4; }
+        .btn-deepseek { background: #4d6bfe; }
+        .btn-copy { background: #636e72; }
+        .copied-msg {
+            font-size: 0.78rem;
+            color: #10a37f;
+            margin-top: -6px;
+            margin-bottom: 14px;
+            display: none;
+        }
+        .footer { font-size: 0.7rem; color: #b2bec3; margin-top: 16px; }
+    </style>
+    <script>
+        const CV_URL = 'https://sahabx.github.io/cv/cv-content.html';
+        const PROMPT = `Please act as a professional recruiter and career coach. Evaluate the CV at this URL thoroughly: ${CV_URL}
+
+Provide a structured assessment covering:
+1. Overall impression and professional positioning
+2. Strengths — what stands out, key achievements, unique value
+3. Areas for improvement — gaps, presentation issues, missing elements
+4. Role fit — what types of roles and seniority levels this CV is best suited for
+5. Specific recommendations to make the CV more competitive
+
+Be honest, constructive, and detailed.`;
+
+        async function openAI(platform) {
+            const urls = {
+                chatgpt: 'https://chat.openai.com/',
+                gemini: 'https://gemini.google.com/',
+                deepseek: 'https://chat.deepseek.com/'
+            };
+
+            try {
+                await navigator.clipboard.writeText(PROMPT);
+            } catch(e) { /* clipboard may not be available */ }
+
+            // Try to open the AI platform
+            window.open(urls[platform], '_blank');
+
+            // Show feedback
+            const msg = document.getElementById('copied-msg');
+            msg.style.display = 'block';
+            msg.textContent = '✓ Prompt copied to clipboard — paste it into the chat!';
+        }
+
+        async function copyPrompt() {
+            try {
+                await navigator.clipboard.writeText(PROMPT);
+                const msg = document.getElementById('copied-msg');
+                msg.style.display = 'block';
+                msg.textContent = '✓ Prompt copied — paste it into your preferred AI tool!';
+            } catch(e) {
+                const msg = document.getElementById('copied-msg');
+                msg.style.display = 'block';
+                msg.textContent = '⚠ Could not copy automatically. Please select and copy the text above.';
+            }
+        }
+
+        // Auto-redirect to ChatGPT on page load
+        window.addEventListener('load', () => {
+            copyPrompt();
+            setTimeout(() => {
+                window.open('https://chat.openai.com/', '_blank');
+            }, 600);
+        });
+    </script>
+</head>
+<body>
+    <div class="card">
+        <h1>📋 Evaluate This CV</h1>
+        <h2>Mohammad Shahabuddin</h2>
+        <p>Choose your AI tool below. The evaluation prompt has been copied to your clipboard — just paste it into the chat.</p>
+
+        <div class="prompt-box" id="prompt-text"></div>
+
+        <button class="btn btn-chatgpt" onclick="openAI('chatgpt')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Open in ChatGPT
+        </button>
+
+        <button class="btn btn-gemini" onclick="openAI('gemini')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+            Open in Gemini
+        </button>
+
+        <button class="btn btn-deepseek" onclick="openAI('deepseek')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            Open in DeepSeek
+        </button>
+
+        <div class="copied-msg" id="copied-msg"></div>
+
+        <p class="footer">The prompt and CV URL are copied to your clipboard automatically.</p>
+    </div>
+
+    <script>
+        document.getElementById('prompt-text').textContent = PROMPT;
+    </script>
+</body>
+</html>

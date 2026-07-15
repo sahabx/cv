@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Shahabuddin — CV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2d3436;
+            background: #f5f6fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 44px 48px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        header {
+            margin-bottom: 28px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 20px;
+        }
+        h1 { font-size: 2.2rem; color: #2d3436; margin-bottom: 4px; }
+        h2 { font-size: 1.1rem; color: #0984e3; font-weight: 500; margin-bottom: 12px; }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            font-size: 0.85rem;
+            color: #636e72;
+        }
+        .contact-item { display: flex; align-items: center; gap: 5px; }
+        .contact-item svg {
+            width: 15px; height: 15px;
+            fill: none; stroke: #0984e3;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .contact-item a { color: #0984e3; text-decoration: none; }
+
+        .summary {
+            background: #f0f7ff;
+            padding: 16px 20px;
+            border-left: 4px solid #0984e3;
+            margin-bottom: 30px;
+            border-radius: 0 6px 6px 0;
+        }
+        section { margin-bottom: 30px; }
+        h3 {
+            font-size: 1.2rem;
+            color: #2d3436;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #eee;
+            display: flex; align-items: center; gap: 8px;
+        }
+        h3 svg {
+            width: 20px; height: 20px;
+            fill: none; stroke: #0984e3;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        h4 { font-size: 1.05rem; color: #0984e3; margin: 6px 0 2px; }
+        .job, .education-item { margin-bottom: 22px; }
+        .company { font-weight: 600; font-size: 1rem; color: #2d3436; }
+        .date-location {
+            font-style: italic; color: #a0a4a8;
+            margin-bottom: 6px; font-size: 0.85rem;
+            display: flex; gap: 12px;
+        }
+        ul { padding-left: 18px; margin-top: 4px; list-style: none; }
+        li { margin-bottom: 4px; padding-left: 4px; position: relative; }
+        li::before {
+            content: ''; position: absolute;
+            left: -14px; top: 9px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: #74b9ff;
+        }
+        .sub-section { margin-top: 10px; margin-left: 2px; }
+        .sub-section h5 {
+            font-size: 0.9rem; color: #555;
+            margin-bottom: 3px; font-weight: 600;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .sub-section h5 svg {
+            width: 15px; height: 15px;
+            fill: none; stroke: #636e72;
+            stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .highlight { background: #fffde7; padding: 1px 4px; border-radius: 3px; font-weight: 500; }
+        .skills-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
+        .skill {
+            background: #f0f7ff; padding: 7px 8px; border-radius: 5px;
+            text-align: center; font-size: 0.85rem;
+            border: 1px solid #e3edf7;
+        }
+        .languages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin-top: 8px; }
+        .language-item { padding: 8px 10px; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #74b9ff; }
+        .language-name { font-weight: 600; color: #2d3436; }
+        .language-level { font-style: italic; color: #a0a4a8; font-size: 0.8rem; }
+        .interests { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+        .interest-tag {
+            background: #f8f9fa; padding: 5px 12px;
+            border-radius: 16px; font-size: 0.85rem;
+            color: #636e72; border: 1px solid #e9ecef;
+        }
+        .achievements-list { list-style: none; padding-left: 0; }
+        .achievements-list li { padding: 6px 0 6px 22px; border-bottom: 1px solid #f1f2f6; }
+        .achievements-list li::before { left: 3px; top: 12px; width: 7px; height: 7px; background: #0984e3; }
+        .edu-note { font-size: 0.8rem; color: #a0a4a8; font-style: italic; margin-top: 3px; }
+        .promo-badge {
+            display: inline-block; background: #e8f5e9; color: #2e7d32;
+            font-size: 0.75rem; font-weight: 600;
+            padding: 2px 8px; border-radius: 10px; margin-left: 6px;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 24px; }
+            h1 { font-size: 1.8rem; }
+            .skills-container { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Mohammad Shahabuddin</h1>
+            <h2>IT Infrastructure &amp; Technical Solutions Specialist</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Mamama, Bahrain
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                    <a href="https://github.com/Sahabx" target="_blank">github.com/Sahabx</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="summary">
+            <p>Versatile IT infrastructure and technical solutions specialist with end-to-end ownership of complex, self-hosted deployments spanning omnichannel communication, AI, CRM, workflow automation, and data analytics. I combine deep hands-on engineering — deploying full stacks on bare VPS with Bash, Docker, and PostgreSQL — with strategic thinking around data sovereignty, cost optimization, and vendor independence. Promoted three times in under two years for delivering systems that serve multi-team, multi-country operations at scale. I thrive in environments where I can own the full problem: from architecture and deployment to integration, training, and crisis recovery.</p>
+        </section>
+
+        <section class="work-experience">
+            <h3>
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><circle cx="12" cy="14" r="2"/></svg>
+                Work Experience
+            </h3>
+
+            <div class="job">
+                <div class="company">Discover Islam Society</div>
+                <h4>IT Infrastructure &amp; Solutions Specialist</h4>
+                <div class="date-location">
+                    <span>November 2024 – Present</span>
+                    <span>Bahrain</span>
+                    <span class="promo-badge">Promoted 3×</span>
+                </div>
+                <p style="color:#a0a4a8; font-style:italic; font-size:0.82rem; margin-bottom:8px;">
+                    Currently overseeing all data operations and IT infrastructure for the organization.
+                </p>
+
+                <div class="sub-section">
+                    <h5>
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
+                        Infrastructure &amp; Systems Architecture
+                    </h5>
+                    <ul>
+                        <li>Single-handedly architected and deployed a <span class="highlight">self-hosted omnichannel communication stack</span> (Chatwoot, NocoDB, Grafana, n8n, Botpress) on Hostinger, Contabo, and DigitalOcean VPS, eliminating reliance on third-party SaaS platforms</li>
+                        <li>Chose the self-hosted approach for <span class="highlight">data integrity, data confidentiality, and full supply-chain control</span>, protecting operations from third-party disruptions and single-point-of-failure risks</li>
+                        <li>Managed the full deployment lifecycle: Bash scripting, YAML-based configuration, Docker container orchestration, PostgreSQL database administration, and Rails console maintenance</li>
+                        <li>Integrated <span class="highlight">AI capabilities</span> across the omnichannel and CRM stack to automate responses, classify conversations, and surface actionable insights</li>
+                        <li>Built a <span class="highlight">mobile-first web-based solution</span> for call center agents that synchronized data bidirectionally with the omnichannel platform</li>
+                        <li>Designed and deployed a dedicated <span class="highlight">new Muslim care management system</span> to support post-outreach follow-up, engagement tracking, and ongoing support workflows</li>
+                        <li>Developed and launched the <span class="highlight">corporate website within a single day</span>; later integrated Eazypay payment gateway, enabling a high-value donation transaction that became a milestone for the organization</li>
+                    </ul>
+                </div>
+
+                <div class="sub-section">
+                    <h5>
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="12 6 12 12 16 14"/></svg>
+                        Digital Marketing &amp; Multi-Country Campaign Operations
+                    </h5>
+                    <ul>
+                        <li>Managed <span class="highlight">Facebook marketing campaigns across 20+ countries</span> with a managed budget of <span class="highlight">3,000 BHD</span>, averaging <span class="highlight">~800,000 monthly reach</span></li>
+                        <li>Generated <span class="highlight">525,301 conversations/leads over two years</span>; 44,542 individuals shared contact details and expressed interest in the organization's mission</li>
+                        <li>Secured <span class="highlight">Facebook approval for a custom application</span> enabling the organization to receive, process, and serve messages directly from its own systems — bypassing platform lock-in</li>
+                        <li>Launched and managed TikTok video campaigns; currently integrating TikTok's API with the self-hosted omnichannel solution for unified multi-platform engagement</li>
+                    </ul>
+                </div>
+
+                <div class="sub-section">
+                    <h5>
+                        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Strategic Impact &amp; Crisis Management
+                    </h5>
+                    <ul>
+                        <li><span class="highlight">Saved 8,000 BHD</span> by transitioning from proprietary systems to open-source solutions</li>
+                        <li><span class="highlight">Eliminated ~$3,000 USD/year in recurring SaaS subscriptions</span> by consolidating tools under the self-hosted stack</li>
+                        <li>Initiated a <span class="highlight">big-tech diversification strategy</span> that removed critical single points of failure — when Facebook unexpectedly blocked management account credentials, operations were swiftly revived with zero extended downtime</li>
+                        <li>Provided technical training and ongoing support to staff across local and offshore teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="company">LMRA Expat Protection Center</div>
+                <h4>BPO Agent</h4>
+                <div class="date-location">
+                    <span>June 2020 – October 2024</span>
+                    <span>North Sehla, Bahrain</span>
+                </div>
+                <ul>
+                    <li>Served as key communicator between clients and officials in multiple languages</li>
+                    <li>Generated comprehensive reports and summaries using CRM systems</li>
+                    <li>Provided real-time translation services both in person and during telephone conferences</li>
+                    <li>Explained detailed SOPs, service information, rules, and policies to clients</li>
+                    <li>Demonstrated excellent communication skills while handling grievances and providing counseling</li>
+                    <li>Adapted swiftly to client requirements and changing operational environments</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="company">Manara Media W.L.L.</div>
+                <h4>Computer Programmer</h4>
+                <div class="date-location">
+                    <span>November 2018 – February 2020</span>
+                    <span>Muharraq, Bahrain</span>
+                </div>
+                <ul>
+                    <li>Automated manual processes in HR and Operations including email responses, recruitment workflows, candidate evaluations, and project tracking</li>
+                    <li>Administered Google Workspace (G-suite) and provided support and training to employees</li>
+                    <li>Developed and automated workflows, SOPs, and templates using Google Apps Script</li>
+                    <li>Leveraged various Google APIs including event triggers, CSV data manipulation, and JSON processing</li>
+                    <li>Provided technical support and maintained company IT devices</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="education">
+            <h3>
+                <svg viewBox="0 0 24 24"><path d="M22 10l-10-6L2 10l10 6 10-6z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+                Education
+            </h3>
+            <div class="education-item">
+                <div class="company">Chittagong Polytechnic Institute</div>
+                <h4>Diploma in Computer Engineering</h4>
+                <div class="date-location">
+                    <span>January 2013 – December 2017</span>
+                    <span>Chittagong, Bangladesh</span>
+                </div>
+                <p class="edu-note">Four-year intensive diploma covering subjects equivalent to a BSc curriculum, including programming, networking, database systems, systems analysis, and software engineering.</p>
+            </div>
+            <div class="education-item">
+                <div class="company">International Open University</div>
+                <h4>BSc in Information Technology — Relevant Coursework Undertaken</h4>
+                <div class="date-location">
+                    <span>March 2021 – 2023</span>
+                </div>
+                <p class="edu-note">Completed foundational and advanced coursework in IT. Discontinued to focus on professional career, where hands-on responsibilities now exceed the scope of the degree program.</p>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h3>
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000-1.4l-1.7-1.7a1 1 0 00-1.4 0l-1.7 1.7a1 1 0 000 1.4l1.7 1.7a1 1 0 001.4 0l1.7-1.7z"/><path d="M8 11l-7 7 2 2 7-7"/><circle cx="18" cy="6" r="3"/></svg>
+                Technical Skills
+            </h3>
+            <div class="skills-container">
+                <div class="skill">Bash / Shell Scripting</div>
+                <div class="skill">Linux Server Admin</div>
+                <div class="skill">Docker &amp; Compose</div>
+                <div class="skill">PostgreSQL</div>
+                <div class="skill">YAML Config</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">VPS Deployment</div>
+                <div class="skill">Cloud Computing</div>
+                <div class="skill">Chatwoot</div>
+                <div class="skill">NocoDB</div>
+                <div class="skill">Grafana</div>
+                <div class="skill">n8n Automation</div>
+                <div class="skill">Botpress (AI Bots)</div>
+                <div class="skill">AI Integration</div>
+                <div class="skill">CRM Systems</div>
+                <div class="skill">Self-Hosted Solutions</div>
+                <div class="skill">Payment Gateways</div>
+                <div class="skill">Facebook Marketing API</div>
+                <div class="skill">TikTok API</div>
+                <div class="skill">Social Media Campaigns</div>
+                <div class="skill">Mobile-First Web Dev</div>
+                <div class="skill">Cost Optimization</div>
+                <div class="skill">Crisis Recovery</div>
+                <div class="skill">MS Office Suite</div>
+                <div class="skill">Adobe Creative Suite</div>
+            </div>
+        </section>
+
+        <section class="languages">
+            <h3>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                Languages
+            </h3>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Full Professional Proficiency</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Bengali</div>
+                    <div class="language-level">Native or Bilingual Proficiency</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Arabic</div>
+                    <div class="language-level">Limited Working Proficiency</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Urdu</div>
+                    <div class="language-level">Professional Working Proficiency</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Hindi</div>
+                    <div class="language-level">Limited Working Proficiency</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interests-section">
+            <h3>
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                Interests
+            </h3>
+            <div class="interests">
+                <div class="interest-tag">Reading</div>
+                <div class="interest-tag">Horseback Riding</div>
+                <div class="interest-tag">Medieval History</div>
+                <div class="interest-tag">Arabic Language &amp; Literature</div>
+            </div>
+        </section>
+
+        <section class="achievements">
+            <h3>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                Key Achievements
+            </h3>
+            <ul class="achievements-list">
+                <li><span class="highlight">Saved 8,000 BHD + $3,000 USD/year</span> by replacing costly proprietary and SaaS tools with a self-hosted open-source stack</li>
+                <li><span class="highlight">Promoted 3 times with pay raises</span> within 20 months, advancing to oversee all data operations and IT infrastructure</li>
+                <li><span class="highlight">Architected and deployed</span> a complete self-hosted omnichannel + CRM + AI ecosystem serving 3 cross-functional teams (local agents, offshore agents, management)</li>
+                <li><span class="highlight">525,301 conversations and 44,542 contacts</span> generated across 20+ countries through Facebook and TikTok campaign operations</li>
+                <li><span class="highlight">Built corporate website in 1 day</span> and integrated payment gateway, directly enabling a landmark donation transaction</li>
+                <li><span class="highlight">Eliminated single points of failure</span> through big-tech diversification; swiftly revived operations when Facebook blocked management credentials, avoiding extended downtime</li>
+                <li>Secured Facebook approval for a custom application that brought message processing in-house, reducing platform dependency</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>
