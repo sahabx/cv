@@ -115,10 +115,11 @@
             const msg = document.getElementById('copied-msg');
             msg.style.display = 'block';
 
+            const encoded = encodeURIComponent(PROMPT);
             const urls = {
-                chatgpt: 'https://chatgpt.com/',
+                chatgpt: `https://chatgpt.com/?q=${encoded}`,
                 gemini: 'https://gemini.google.com/app',
-                deepseek: 'https://chat.deepseek.com/'
+                deepseek: `https://chat.deepseek.com/?q=${encoded}`
             };
 
             window.location.href = urls[platform];
