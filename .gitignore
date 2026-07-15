@@ -1,5 +1,9 @@
 node_modules/
 backup.html
 index.html
+image.png
+package.json
+package-lock.json
+generate-pdf.js
 "Mohammad Shahabuddin - Professional CV.pdf"
 "Mohammad_Shahabuddin_CV.pdf"
