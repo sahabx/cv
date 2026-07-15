@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI CV Evaluation — Mohammad Shahabuddin</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,6 +27,20 @@
         h1 { font-size: 1.3rem; color: #2d3436; margin-bottom: 2px; }
         h2 { font-size: 0.9rem; color: #0984e3; font-weight: 500; margin-bottom: 16px; }
         p.info { font-size: 0.82rem; color: #636e72; margin-bottom: 18px; line-height: 1.4; }
+        .prompt-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 12px 14px;
+            text-align: left;
+            font-size: 0.78rem;
+            color: #555;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            max-height: 90px;
+            overflow-y: auto;
+            word-break: break-word;
+        }
         .btn {
             display: flex;
             align-items: center;
@@ -48,11 +62,16 @@
         .btn-chatgpt { background: #10a37f; }
         .btn-gemini { background: #4285f4; }
         .btn-deepseek { background: #4d6bfe; }
+        .copied-msg {
+            font-size: 0.75rem;
+            color: #10a37f;
+            margin-bottom: 12px;
+            display: none;
+        }
         .hint {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: #b2bec3;
-            margin-top: 14px;
-            line-height: 1.4;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -60,54 +79,49 @@
     <div class="card">
         <h1>📋 Evaluate This CV</h1>
         <h2>Mohammad Shahabuddin</h2>
-        <p class="info">Tap an AI app below — your phone will open the app with the evaluation prompt ready.</p>
+        <p class="info">Choose your AI tool — the evaluation prompt is copied to your clipboard automatically.</p>
+
+        <div class="prompt-box" id="prompt-text"></div>
 
         <button class="btn btn-chatgpt" onclick="openAI('chatgpt')">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            ChatGPT
+            Open ChatGPT
         </button>
 
         <button class="btn btn-gemini" onclick="openAI('gemini')">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
-            Gemini
+            Open Gemini
         </button>
 
         <button class="btn btn-deepseek" onclick="openAI('deepseek')">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-            DeepSeek
+            Open DeepSeek
         </button>
 
-        <p class="hint">If the prompt doesn't appear, paste it from your clipboard.</p>
+        <div class="copied-msg" id="copied-msg">✓ Prompt copied to clipboard — paste it into the chat!</div>
+
+        <p class="hint">After tapping, paste the prompt into your AI app's chat input.</p>
     </div>
 
     <script>
         const CV_URL = 'https://sahabx.github.io/cv/cv-content.html';
         const PROMPT = `Please act as a professional recruiter and career coach. Evaluate the CV at this URL thoroughly: ${CV_URL}\n\nProvide a structured assessment covering:\n1. Overall impression and professional positioning\n2. Strengths \u2014 what stands out, key achievements, unique value\n3. Areas for improvement \u2014 gaps, presentation issues, missing elements\n4. Role fit \u2014 what types of roles and seniority levels this CV is best suited for\n5. Specific recommendations to make the CV more competitive\n\nBe honest, constructive, and detailed.`;
 
+        document.getElementById('prompt-text').textContent = PROMPT;
+
         async function openAI(platform) {
-            // Copy to clipboard as fallback
             try { await navigator.clipboard.writeText(PROMPT); } catch(e) {}
 
-            const encoded = encodeURIComponent(PROMPT);
+            const msg = document.getElementById('copied-msg');
+            msg.style.display = 'block';
 
-            // Universal links — iOS & Android will prompt to open in native app if installed
             const urls = {
-                chatgpt: `https://chatgpt.com/?q=${encoded}`,
-                gemini: `https://gemini.google.com/app`,
-                deepseek: `https://chat.deepseek.com/?q=${encoded}`
+                chatgpt: 'https://chat.openai.com/',
+                gemini: 'https://gemini.google.com/',
+                deepseek: 'https://chat.deepseek.com/'
             };
 
-            // Also try native app URL schemes as fallback (Android intent / iOS scheme)
-            const appSchemes = {
-                chatgpt: `intent://chatgpt.com/?q=${encoded}#Intent;scheme=https;package=com.openai.chatgpt;end`,
-                deepseek: `intent://chat.deepseek.com/?q=${encoded}#Intent;scheme=https;package=com.deepseek.chat;end`
-            };
-
-            // On Android, try intent first; on iOS, the universal link handles it
-            const isAndroid = /android/i.test(navigator.userAgent);
-            const finalUrl = isAndroid && appSchemes[platform] ? appSchemes[platform] : urls[platform];
-
-            window.location.href = finalUrl;
+            window.open(urls[platform], '_blank');
         }
     </script>
 </body>
