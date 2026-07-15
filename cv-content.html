@@ -116,6 +116,22 @@
             font-size: 0.75rem; font-weight: 600;
             padding: 2px 8px; border-radius: 10px; margin-left: 6px;
         }
+        .portfolio-grid {
+            display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px;
+        }
+        .portfolio-item {
+            background: #f8f9fa; padding: 10px 14px;
+            border-radius: 8px; border: 1px solid #e9ecef;
+            flex: 1; min-width: 180px;
+        }
+        .portfolio-name {
+            display: flex; align-items: center; gap: 5px;
+            font-weight: 600; color: #2d3436; margin-bottom: 2px;
+        }
+        .portfolio-name a { color: #0984e3; text-decoration: none; }
+        .portfolio-desc {
+            font-size: 0.8rem; color: #8a8e93; margin-left: 21px;
+        }
         @media (max-width: 768px) {
             .container { padding: 24px; }
             h1 { font-size: 1.8rem; }
@@ -137,14 +153,6 @@
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
                     <a href="https://github.com/Sahabx" target="_blank">github.com/Sahabx</a>
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                    <a href="https://qbixproductions.com" target="_blank">qbixproductions.com</a>
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                    <a href="https://pathtopeace.online" target="_blank">pathtopeace.online</a>
                 </div>
             </div>
         </header>
@@ -304,6 +312,29 @@
                 <div class="skill">Crisis Recovery</div>
                 <div class="skill">MS Office Suite</div>
                 <div class="skill">Adobe Creative Suite</div>
+            </div>
+        </section>
+
+        <section class="portfolio">
+            <h3>
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                Portfolio &amp; Projects
+            </h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-name">
+                        <svg viewBox="0 0 24 24" width="16" height="16" style="fill:none;stroke:#0984e3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        <a href="https://qbixproductions.com" target="_blank">qbixproductions.com</a>
+                    </div>
+                    <p class="portfolio-desc">Web development &amp; digital production services</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-name">
+                        <svg viewBox="0 0 24 24" width="16" height="16" style="fill:none;stroke:#0984e3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        <a href="https://pathtopeace.online" target="_blank">pathtopeace.online</a>
+                    </div>
+                    <p class="portfolio-desc">Online platform for spiritual outreach &amp; content</p>
+                </div>
             </div>
         </section>
 
