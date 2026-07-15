@@ -116,12 +116,12 @@
             msg.style.display = 'block';
 
             const urls = {
-                chatgpt: 'https://chat.openai.com/',
-                gemini: 'https://gemini.google.com/',
+                chatgpt: 'https://chatgpt.com/',
+                gemini: 'https://gemini.google.com/app',
                 deepseek: 'https://chat.deepseek.com/'
             };
 
-            window.open(urls[platform], '_blank');
+            window.location.href = urls[platform];
         }
     </script>
 </body>
